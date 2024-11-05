@@ -34,3 +34,8 @@
 img {
     border-radius: 50%;
 }
+
+.project-state {
+    background-color: rgb(240, 240, 240);
+    border-radius: 12px;
+}

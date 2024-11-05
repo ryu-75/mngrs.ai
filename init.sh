@@ -195,6 +195,33 @@ else
     pip install --upgrade celery
     echo -e "🚀 ${YELLOW}celery updated to $latest_version!${RESET}"
 fi
+
+echo "================================================================"
+echo "🚀 Installing Pillow..."
+pip install Pillow
+
+test=$(pip show Pillow > /dev/null 2>&1)
+echo $test
+
+if pip show Pillow > /dev/null 2>&1; then
+    echo -e "✅ ${GREEN}Pillow is installed!${RESET}"
+else
+    echo -e "❌ ${RED}Failed to install Pillow${RESET}"
+    exit 1
+fi
+# Get the installed version of Pillow
+installed_version=$(pip show Pillow | grep Version | awk '{print $2}')
+# Get the latest version of Pillow from PyPI
+latest_version=$(pip install Pillow --upgrade | grep "Requirement already satisfied: Pillow in" | awk '{print $7}' | tr -d '()')
+
+if [ $latest_version = $installed_version ]; then
+    echo -e "✅ ${GREEN}Pillow is already up to date!${RESET}"
+else
+    echo -e "🔄 ${YELLOW}Pillow is outdated! Updating...${RESET}"
+    pip install --upgrade Pillow
+    echo -e "🚀 ${YELLOW}Pillow updated to $latest_version!${RESET}"
+fi
+
 echo "================================================================"
 echo "📝 Creating a requirements.txt..."
 pip freeze > requirements.txt

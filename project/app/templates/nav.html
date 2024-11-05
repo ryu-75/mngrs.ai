@@ -1,0 +1,15 @@
+{% load cache %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% block style %}<link rel="stylesheet" href="{% static 'styles/nav.css' %}">{% endblock style %}
+<nav class="navbar bg-black mx-4 rounded">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="d-flex justify-content-evenly m-2 navbar-left">
+                <a class="mx-5" href={% url 'home' %}>Projects</a>
+                <a class="mx-5" href={% url 'create_project' %}>Create</a>
+            </div>
+        </div>
+    </div>
+</nav>
