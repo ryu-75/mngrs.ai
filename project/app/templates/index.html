@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'styles/project.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close,update" />
+{% endblock style %}
+{% block content %}
+<div class="d-flex align-items-center">
+    <h1 class="m-4 text-light">Projects</h1>
+    <span class="mt-3 text-light">Create your own project !</span>
+</div>
+<div class="mx-4">
+    <div class="mb-4">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <div class="project-header-item">
+                <h3 class="text-center my-2">Title</h3>
+            </div>
+            <div class="project-item">
+                <p class="description">My description</p>
+                <div class="d-flex align-items justify-content-between mx-4 mt-4">
+                    <div>
+                        <p class="text-muted text-center">Completed ?</p>
+                        <p class="completed text-center">False</p>
+                    </div>
+                    <div>
+                        <p class="text-muted text-center">Deadline</p>
+                        <p class="text-center">November the 4th</p>
+                    </div>
+                </div>
+                <div class="text-center m-4">
+                    <img class="w-25" src="{% static 'images/joyboy.jpg' %}" sizes="5" alt="" />
+                </div>
+                <div class="d-flex justify-content-evenly my-3">
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="article_id" value="">
+                        <button type="submit" name="action" value="remove" class="rounded-circle border-0 bg-warning">
+                            <span class="material-symbols-outlined m-2 text-white">
+                                update
+                            </span>
+                        </button>
+                    </form>
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="article_id" value="">
+                        <button type="submit" name="action" value="remove" class="rounded-circle border-0 bg-danger">
+                            <span class="material-symbols-outlined m-2 text-white">
+                                close
+                            </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+{% endblock content %}

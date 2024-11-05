@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% block content%}
+{% include 'nav.html' %}
+<h2 class="text-center pt-4 text-white">{{ page_title }}</h2>
+<div class="d-flex justify-content-center p-4 rounded w-auto">
+    <form class="w-50" action="{% url link %}" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" class="btn btn-light rounded" value="New project">
+    </form>
+</div>
+{% endblock content%}% 

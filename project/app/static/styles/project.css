@@ -1,0 +1,36 @@
+.project-content {
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.project-item {
+    width: 50%;
+    height: 25%;
+    background-color: white;
+    border-radius: 0px 0px 25px 25px;
+    color: black;
+    display: table-column;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.project-header-item {
+    width: 50%;
+    height: 25%;
+    background-color: white;
+    border-radius: 25px 25px 0px 0px;
+    color: black;
+    display: table-column;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.description {
+    text-align: center;
+    margin-top: 1rem
+}
+
+img {
+    border-radius: 50%;
+}
