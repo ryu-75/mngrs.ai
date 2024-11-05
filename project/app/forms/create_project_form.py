@@ -21,7 +21,13 @@ class CreateProjectForm(forms.ModelForm):
         })
         self.fields['image'].required = False
         self.fields['due_date'].required = False
-    
+        self.fields['due_date'].widget = forms.DateInput(attrs={
+            'required': False,
+            'class': 'form-control',
+            'placeholder': 'Due date',
+            'type': 'date',
+            'id': 'startDate'
+        })    
     def clean(self):
         cleaned_data = super().clean()
         title = cleaned_data.get('title')

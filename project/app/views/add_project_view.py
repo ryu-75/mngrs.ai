@@ -1,15 +1,15 @@
 from typing import Any
-from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
-from django.views.generic import FormView
+from django.http import HttpResponse
+from django.views.generic import CreateView
 from app.forms import CreateProjectForm
-from django.shortcuts import render
-from django.urls import reverse_lazy
 from django.contrib import messages
+from app.models import Project
 
-class CreateView(FormView):
+class AddProjectView(CreateView):
     template_name = 'create.html'
     form_class = CreateProjectForm
-    success_url = 'home'
+    model = Project
+    success_url = '/'
     
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)

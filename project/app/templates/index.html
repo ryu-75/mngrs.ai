@@ -10,51 +10,55 @@
 {% comment %} Form to create a project {% endcomment %}
 <div class="mx-4">
     <div class="mb-4">
-        <div class="d-flex flex-column justify-content-center align-items-center">
-            <div class="project-header-item">
-                <h3 class="text-center my-2">Title</h3>
-            </div>
-            <div class="project-item">
-                <p class="description">My description</p>
-                <div class="d-flex align-items justify-content-between mx-4 mt-4">
-                    <div>
-                        <p class="text-muted text-center">Completed ?</p>
-                        <div class="project-state">
-                            <p class="completed text-center">False</p>
+        {% if projects %}
+            {% for project in projects %}
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <div class="project-header-item">
+                        <h3 class="text-center my-2">{{ project.title }}</h3>
+                    </div>
+                    <div class="project-item">
+                        <p class="description">{{ project.description }}</p>
+                        <div class="d-flex align-items justify-content-between mx-4 mt-4">
+                            <div>
+                                <p class="text-muted text-center">Completed ?</p>
+                                <div class="project-state">
+                                    <p class="completed text-center">{{ project.completed }}</p>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-muted text-center">Deadline</p>
+                                <div class="project-state">
+                                    <p class="text-center m-2">{{ project.due_date|date:"d M Y" }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center m-4">
+                            <img class="w-25" src="uploads/{{ project.image }}" />
+                        </div>
+                        <div class="d-flex justify-content-evenly my-3">
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="project_id" value="">
+                                <button type="submit" name="action" value="remove" class="rounded-circle border-0 bg-warning">
+                                    <span class="material-symbols-outlined m-2 text-white">
+                                        update
+                                    </span>
+                                </button>
+                            </form>
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="project_id" value="">
+                                <button type="submit" name="action" value="remove" class="rounded-circle border-0 bg-danger">
+                                    <span class="material-symbols-outlined m-2 text-white">
+                                        close
+                                    </span>
+                                </button>
+                            </form>
                         </div>
                     </div>
-                    <div>
-                        <p class="text-muted text-center">Deadline</p>
-                        <div class="project-state">
-                            <p class="text-center m-2">November the 4th</p>
-                        </div>
-                    </div>
                 </div>
-                <div class="text-center m-4">
-                    <img class="w-25" src="{% static 'images/joyboy.jpg' %}" sizes="5" alt="" />
-                </div>
-                <div class="d-flex justify-content-evenly my-3">
-                    <form method="post">
-                        {% csrf_token %}
-                        <input type="hidden" name="project_id" value="">
-                        <button type="submit" name="action" value="remove" class="rounded-circle border-0 bg-warning">
-                            <span class="material-symbols-outlined m-2 text-white">
-                                update
-                            </span>
-                        </button>
-                    </form>
-                    <form method="post">
-                        {% csrf_token %}
-                        <input type="hidden" name="project_id" value="">
-                        <button type="submit" name="action" value="remove" class="rounded-circle border-0 bg-danger">
-                            <span class="material-symbols-outlined m-2 text-white">
-                                close
-                            </span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
+            {% endfor %}
+        {% endif %}
     </div>
     
 </div>

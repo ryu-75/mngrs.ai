@@ -4,7 +4,7 @@
 {% bootstrap_css %}
 {% block content %}
 <div class="d-flex justify-content-center p-4 rounded w-auto">
-    <form class="w-50" action="{% url 'create_project' %}" method="post">
+    <form class="w-50" action="{% url 'create_project' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
         <input type="submit" class="btn btn-light rounded" value="New project">
