@@ -221,7 +221,31 @@ else
     pip install --upgrade Pillow
     echo -e "🚀 ${YELLOW}Pillow updated to $latest_version!${RESET}"
 fi
+echo "================================================================"
+echo "🚀 Installing djangorestframework..."
+pip install djangorestframework
 
+test=$(pip show djangorestframework > /dev/null 2>&1)
+echo $test
+
+if pip show djangorestframework > /dev/null 2>&1; then
+    echo -e "✅ ${GREEN}djangorestframework is installed!${RESET}"
+else
+    echo -e "❌ ${RED}Failed to install djangorestframework${RESET}"
+    exit 1
+fi
+# Get the installed version of djangorestframework
+installed_version=$(pip show djangorestframework | grep Version | awk '{print $2}')
+# Get the latest version of djangorestframework from PyPI
+latest_version=$(pip install djangorestframework --upgrade | grep "Requirement already satisfied: djangorestframework in" | awk '{print $7}' | tr -d '()')
+
+if [ $latest_version = $installed_version ]; then
+    echo -e "✅ ${GREEN}djangorestframework is already up to date!${RESET}"
+else
+    echo -e "🔄 ${YELLOW}djangorestframework is outdated! Updating...${RESET}"
+    pip install --upgrade djangorestframework
+    echo -e "🚀 ${YELLOW}djangorestframework updated to $latest_version!${RESET}"
+fi
 echo "================================================================"
 echo "📝 Creating a requirements.txt..."
 pip freeze > requirements.txt

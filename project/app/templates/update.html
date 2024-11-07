@@ -6,11 +6,11 @@
 {% endblock style %}
 {% bootstrap_css %}
 {% block content %}
-<div class="d-flex justify-content-center p-4 rounded w-auto my-5">
-    <form class="w-50" action="{% url 'create_project' %}" method="post" enctype="multipart/form-data">
+<div class="d-flex justify-content-center p-4 rounded w-auto">
+    <form class="w-50" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {% bootstrap_form form %}
-        <input id="input-form" type="submit" class="btn btn-light rounded my-4 w-25" value="New project">
+        <input id="input-form" type="submit" class="btn btn-light rounded my-4 w-25" value="Edit">
     </form>
 </div>
 {% endblock content %}

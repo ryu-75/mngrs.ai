@@ -1,13 +1,23 @@
+from typing import Any, Dict
 from django import forms
 from app.models import Project
 from django.core.exceptions import ValidationError
 
-class CreateProjectForm(forms.ModelForm):
+class ProjectForm(forms.ModelForm):
+    tags = forms.CharField(
+        max_length=255,
+        required=False,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Tags (separated by commas)',
+        })
+    )
+    
     class Meta:
         model = Project
-        fields = ["title", "description", "image", "due_date"]
+        fields = ["title", "description", "image", "due_date", "completed", "tags"]
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args:tuple , **kwargs:Dict[str, Any]):
         super().__init__(*args, **kwargs)
         self.fields['title'].widget = forms.TextInput(attrs={
             'required': True,
@@ -20,7 +30,6 @@ class CreateProjectForm(forms.ModelForm):
             'placeholder': 'Project description'
         })
         self.fields['image'].required = False
-        self.fields['due_date'].required = False
         self.fields['due_date'].widget = forms.DateInput(attrs={
             'required': False,
             'class': 'form-control',
@@ -28,26 +37,15 @@ class CreateProjectForm(forms.ModelForm):
             'type': 'date',
             'id': 'startDate'
         })    
+        self.fields['completed'].widget = forms.Select(choices=[(True, 'Yes'), (False, 'No')], attrs={
+            'class': 'form-control'
+        })
     def clean(self):
         cleaned_data = super().clean()
         title = cleaned_data.get('title')
         
         if Project.objects.filter(title=title).exists():
-            raise ValidationError("This title is already used")
+            raise ValidationError("This title has already used")
         if title is None:
             raise ValidationError('You should to add a title as minimum')
         return cleaned_data
-    
-    # def create(self):
-    #     cleaned_data = self.cleaned_data
-    #     try:
-    #         project = Project.objects.create(
-    #             title = cleaned_data.get('title'),
-    #             description = cleaned_data.get('description'),
-    #             image = cleaned_data.get('image'),
-    #             completed = cleaned_data.get('completed'),
-    #             due_date = cleaned_data.get('due_date')
-    #         )
-    #         return project
-    #     except:
-    #         return None

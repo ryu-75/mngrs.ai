@@ -1,5 +1,6 @@
-#nav {
-    background: linear-gradient(200deg, #0e65a0, #7983db);
+nav {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0px 0px 25px 25px;
 }
 
 #username {

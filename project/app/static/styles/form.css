@@ -1,0 +1,20 @@
+form > label {
+    margin-top: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(45deg, #2080c0, rgb(230, 179, 235), rgb(212, 212, 212));
+    padding: 4rem;
+    border-radius: 25px;
+}
+
+#image-clear_id,
+label[for="image-clear_id"] {
+    visibility: hidden;
+}
+
+label[for="image-clear_id"] {
+    margin-bottom: 15px;
+}

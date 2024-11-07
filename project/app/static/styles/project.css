@@ -13,6 +13,7 @@
     display: table-column;
     justify-content: center;
     margin-top: 0.5rem;
+    background: linear-gradient(80deg, #2080c0, rgb(230, 179, 235), rgb(212, 212, 212));
 }
 
 .project-header-item {
@@ -21,21 +22,37 @@
     background-color: white;
     border-radius: 25px 25px 0px 0px;
     color: black;
-    display: table-column;
-    justify-content: center;
-    margin-top: 2rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: 5rem;
+    background: linear-gradient(45deg, #2080c0, rgb(230, 179, 235), rgb(230, 179, 235), rgb(212, 212, 212));
+
 }
 
 .description {
-    text-align: center;
-    margin-top: 1rem
+    text-align: justify;
+    padding: 1rem;
 }
 
 img {
     border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    vertical-align: middle;
+    object-fit: cover;
 }
 
 .project-state {
     background-color: rgb(240, 240, 240);
     border-radius: 12px;
+}
+
+#tag {
+    color: yellow;
+    font-weight: bold;
+}
+
+#tag:hover {
+    color: white
 }

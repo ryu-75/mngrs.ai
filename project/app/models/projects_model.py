@@ -15,7 +15,7 @@ class Project(models.Model):
         return self.title
         
 class Tag(models.Model):
-    projects = models.ManyToManyField(Project)
+    projects = models.ManyToManyField(Project, related_name='tags')
     title = models.CharField(max_length=255)
     
     class Meta:
