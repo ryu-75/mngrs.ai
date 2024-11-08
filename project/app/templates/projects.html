@@ -70,18 +70,3 @@
     {% endfor %}
 {% endif %}
 {% endblock content %}
-{% block script %}
-    {% if show_modal %}
-        <script>
-            console.log("Hello");
-            $(document).on("click", "#openModal", function (e) {
-                e.preventDefault();
-                var $popup = $("#openModal");
-                var popup_url = $(this).data("popup-url");
-                $(".modal-dialog", $popup).load(popup_url, function () {
-                  $popup.modal("show");
-                });
-              });
-        </script>
-    {% endif %}
-{% endblock script %}

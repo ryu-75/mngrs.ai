@@ -31,6 +31,14 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# Celery settings
+
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = BASE_DIR / 'emails'
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = f'file://{os.path.join(BASE_DIR, "emails")}'
+CELERY_TIMEZONE = 'Europe/Paris'  
+
 # Application definition
 
 INSTALLED_APPS = [

@@ -247,6 +247,31 @@ else
     echo -e "🚀 ${YELLOW}djangorestframework updated to $latest_version!${RESET}"
 fi
 echo "================================================================"
+echo "🚀 Installing redis..."
+pip install redis
+
+test=$(pip show redis > /dev/null 2>&1)
+echo $test
+
+if pip show redis > /dev/null 2>&1; then
+    echo -e "✅ ${GREEN}redis is installed!${RESET}"
+else
+    echo -e "❌ ${RED}Failed to install redis${RESET}"
+    exit 1
+fi
+# Get the installed version of redis
+installed_version=$(pip show redis | grep Version | awk '{print $2}')
+# Get the latest version of redis from PyPI
+latest_version=$(pip install redis --upgrade | grep "Requirement already satisfied: redis in" | awk '{print $7}' | tr -d '()')
+
+if [ $latest_version = $installed_version ]; then
+    echo -e "✅ ${GREEN}redis is already up to date!${RESET}"
+else
+    echo -e "🔄 ${YELLOW}redis is outdated! Updating...${RESET}"
+    pip install --upgrade redis
+    echo -e "🚀 ${YELLOW}redis updated to $latest_version!${RESET}"
+fi
+echo "================================================================"
 echo "📝 Creating a requirements.txt..."
 pip freeze > requirements.txt
 echo -e "✅ ${GREEN}requirements.txt is created!${RESET}"

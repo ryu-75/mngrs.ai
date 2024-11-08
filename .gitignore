@@ -7,3 +7,4 @@ django_venv
 
 project/uploads/*.jpg
 project/uploads/*.png
+project/emails/*

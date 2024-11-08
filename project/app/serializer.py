@@ -11,4 +11,4 @@ class ProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = ['id', 'title', 'description', 'completed', 'due_date', 'tags']  # Inclure les tags dans le champ 'tags'
+        fields = ['id', 'title', 'description', 'completed', 'due_date', 'tags'] 
