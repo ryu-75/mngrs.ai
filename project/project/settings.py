@@ -30,6 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+DELETE_CONFIRMATION_REQUIRED = True
 
 # Celery settings
 
