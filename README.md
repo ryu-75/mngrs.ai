@@ -58,6 +58,29 @@ Finally, in the project root directory, run:
 python manage.py runserver
 ```
 
+## How to used the app
+Once the server is running, you can create a project !
+
+To do this, you need to :
+1. Navigate to the `create` link.
+2. Fill out the form (Only the `title` is required).
+3. Concerning tags, you can add multiple tags by separating each tag with a comma.
+4. Once form is correctly filled, click on `New project`.
+You will be redirected to the `projects` page.
+
+To update a project, simply :
+1. Click on the `yellow` button at the top right of the project card.
+2. You will redirected to the `update/` url.
+3. Apart from the `title` which is required, any field you leave unchanged will keep its oldest value.
+4. Then, click on `Edit`
+
+And now, for deleted a project, you just need to:
+1. Simply click on the `red` button next to the `yellow` button. That's all !
+
+You can also sort projects with the dropdown at the top right of the page.
+
+It sorts projects by `Completed` or `due date` status.
+
 ### Good to know: 
 When you create a new project, the program creates a folder called `emails` in the project root.
 Similarly, when your add an image to your project, a folder called `uploads` is also created in the project root.
