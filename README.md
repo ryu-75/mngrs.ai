@@ -49,6 +49,10 @@ Finally, in the project root directory, run:
 python manage.py runserver
 ```
 
+### Good to know: 
+When you create a new project, the program creates a folder called `emails` in the project root.
+Similarly, when your add an image to your project, a folder called `uploads` is also created in the project root.
+
 ## Test
 If you want to execute tests for views, models and services.
 You just need to run the following command:
