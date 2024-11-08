@@ -49,3 +49,9 @@ Finally, in the project root directory, run:
 python manage.py runserver
 ```
 
+## Test
+If you want to execute tests for views, models and services.
+You just need to run the following command:
+```bash
+python manage.py test
+```
