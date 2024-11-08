@@ -12,9 +12,18 @@ source django_venv/bin/activate
 ```
 Once the installation is complete, you will be redirected in the environment.
 
-Now, navigate to the project directory and execute the following command:
+Now, you need to create and configure an `.env` file inside the `project/` folder.
+The `.env` file take:
+```
+DB_NAME    = 
+DB_USER    = 
+DB_PWD     = 
+DB_PORT    = 
+DB_HOST    = 
+```
+
+Then, execute the following command to configure the database:
 ```bash
-cd project
 python manage.py makemigrations
 python manage.py migrate
 ```
