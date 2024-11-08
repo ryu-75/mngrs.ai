@@ -55,3 +55,5 @@ You just need to run the following command:
 ```bash
 python manage.py test
 ```
+
+I hope you will be satisfied with my practical case !
