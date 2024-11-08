@@ -1,6 +1,5 @@
 from django.test import TestCase
 from app.services import EmailService
-from django.core.mail import outbox
 from unittest.mock import patch
 from django.urls import reverse
 from app.models import Project, Tag

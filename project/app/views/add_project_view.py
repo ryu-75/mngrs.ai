@@ -1,4 +1,3 @@
-from typing import Any
 from django.http import HttpResponse
 from django.views.generic import CreateView
 from app.forms import ProjectForm

@@ -1,9 +1,8 @@
-from typing import Dict, Any
 from django.views.generic import DeleteView
 from django.urls import reverse_lazy
 from app.models import Project
 from app.forms import ProjectForm
-from django.http import HttpResponseRedirect, HttpResponse, HttpRequest
+from django.http import HttpResponse
 from django.contrib import messages
 
 class DeleteProjectView(DeleteView):

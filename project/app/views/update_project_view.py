@@ -4,7 +4,6 @@ from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.contrib import messages
 from app.forms import UpdateProjectForm
-from django.shortcuts import get_object_or_404
 
 class UpdateProjectView(UpdateView):
     model = Project

@@ -2,7 +2,7 @@ from typing import Dict, Any
 from django.http.response import HttpResponse as HttpResponse
 from django.http.response import HttpResponseNotFound
 from django.views.generic import ListView
-from app.models import Project, Tag
+from app.models import Project
 from django.db.models.query import QuerySet
 from app.serializer import TagSerializer
 

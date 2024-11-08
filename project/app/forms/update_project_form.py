@@ -1,6 +1,5 @@
 from django import forms
 from app.models import Project
-from django.core.exceptions import ValidationError
 
 class UpdateProjectForm(forms.ModelForm):
     tags = forms.CharField(
