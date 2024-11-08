@@ -1,0 +1,10 @@
+# Python
+__pycache__
+
+# Virtual environments
+django_venv
+.env
+
+project/uploads/*.jpg
+project/uploads/*.png
+project/emails/*
