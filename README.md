@@ -60,4 +60,11 @@ You just need to run the following command:
 python manage.py test
 ```
 
+## Command
+To delete all the projects from Project table, you need to run the following command:
+```bash
+python manage.py delete_all_projects
+```
+Then type `yes` to delete all.
+
 I hope you will be satisfied with my practical case !
